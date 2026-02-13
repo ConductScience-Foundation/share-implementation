@@ -1,0 +1,27 @@
+# Data files (too large for git)
+data/*.db
+data/*.pkl
+data/*.csv
+data/clinicaltrials_bulk/
+data/geo_bulk/
+data/score_updates/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+*.json.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
