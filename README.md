@@ -101,11 +101,11 @@ Repository-specific signal mappings are defined in [share-pledges](https://githu
 
 ## Validation Results
 
-Using the Zenodo 2016 cohort (n=48,771):
+Validated on two Zenodo cohorts:
 
-- **Citation prediction OR**: 3.0x per 10-point SHAE increase (95% CI: 2.87-3.18, p<0.001)
-- **Derivative prediction OR**: 5.73x (95% CI: 4.97-6.61)
-- **AUC (SHAE vs field count)**: Structured scoring outperforms naive field count
+- **Citation prediction OR**: 3.0x per 10-point SHAE increase (95% CI: 2.87-3.18, p<0.001; Zenodo 2016, n=48,771)
+- **Derivative prediction OR**: 5.73x per 10-point increase (95% CI: 4.97-6.61; Zenodo 2017-2022, n=183,872)
+- **AUC (4-component SHAE vs field count)**: Structured scoring (0.930) outperforms naive field count (0.846)
 - **Known-groups validity**: Strict repositories (SRA) score higher than general (Zenodo)
 
 See `results/validation_v2.json` for full output.
