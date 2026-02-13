@@ -646,8 +646,9 @@ def analysis_5_cross_repo_validation():
     print("  ANALYSIS 5: Cross-Repository Validation (Known-Groups)")
     print("=" * 70)
 
-    # Import the scoring engine from rescore_unified.py
-    sys.path.insert(0, SCRIPT_DIR)
+    # Import the scoring engine from rescore_unified.py (in scoring/ directory)
+    scoring_dir = os.path.join(PROJECT_DIR, 'scoring')
+    sys.path.insert(0, scoring_dir)
     import rescore_unified as ru
 
     repo_results = {}

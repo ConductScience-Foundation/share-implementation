@@ -1,10 +1,10 @@
 """
 SHARE Score Unified Scoring Engine — Methodology v2
 ====================================================
-Implements: SHARE = (signals present / signals available) × 100
+Implements: SHARE = (signals present / 25) × 100
 
 All signals are binary (present/absent). Equal weight per signal.
-Repository-adaptive denominator (pledge-based).
+Fixed denominator of 25 (universal signal count) ensures cross-repository comparability.
 
 Usage:
   py -3.14 scripts/rescore_unified.py                 # All repos
@@ -365,11 +365,11 @@ def score_record(record, pledge, special_fn=None):
     Returns dict with:
       - share_score: float 0-100
       - signals_present: int
-      - signals_available: int (= len(pledge))
+      - signals_available: int (always 25 — fixed universal denominator)
       - per_bucket: dict of bucket -> (present, available)
       - signal_results: list of (name, bucket, present)
     """
-    signals_available = len(pledge)
+    signals_available = 25  # Fixed denominator per SHARE methodology
     signals_present = 0
     per_bucket = defaultdict(lambda: [0, 0])  # bucket -> [present, available]
     signal_results = []
@@ -680,8 +680,8 @@ def analyze_repo(repo_name, records, pledge, special_fn=None):
     return {
         'repository': repo_name,
         'record_count': len(records),
-        'signals_available': len(pledge),
-        'score_per_signal': round(100 / len(pledge), 2),
+        'signals_available': 25,
+        'score_per_signal': round(100 / 25, 2),
         'stats': stats,
         'old_stats': old_stats,
         'bucket_stats': bucket_stats,
